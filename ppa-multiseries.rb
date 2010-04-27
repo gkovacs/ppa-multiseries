@@ -120,6 +120,11 @@ nchentry = <<-eos
  -- #{debname} <#{debmail}>  #{cdate}
 eos
 			writef("debian/changelog", nchentry+dchtxt)
+			if distn == "karmic" or distn == "jaunty" or distn == "intrepid" or distn == "hardy"
+			    if File.exists? "debian/source/format"
+			        writef("debian/source/format", "1.0")
+			    end
+			end
 			sh "debuild -i -I -S -sa"
 		end
 	}
