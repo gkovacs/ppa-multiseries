@@ -79,7 +79,7 @@ if __FILE__ == $0
 	end
 
 	deletedirs = true
-	distrolist = ["hardy", "lucid", "maverick", "natty", "oneric"]
+	distrolist = ["hardy", "lucid", "maverick", "natty", "oneiric"]
 
 	if ARGV.length > 1
 		if ARGV[1] == "-k"
