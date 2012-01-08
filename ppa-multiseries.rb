@@ -79,7 +79,8 @@ if __FILE__ == $0
 	end
 
 	deletedirs = true
-	distrolist = ["hardy", "lucid", "maverick", "natty", "oneiric"]
+	distrolist = ["lucid", "maverick", "natty", "oneiric", "precise"]
+	vernum = 1
 
 	if ARGV.length > 1
 		if ARGV[1] == "-k"
@@ -88,6 +89,13 @@ if __FILE__ == $0
 		end
 	end
 	
+	if ARGV.length > 1
+		if ARGV[1].to_i > 1
+			vernum = ARGV[1].to_i
+			ARGV = ARGV[0..0]+ARGV[2..ARGV.length]
+		end
+	end
+
 	if ARGV.length > 1
 		distrolist = ARGV[1..ARGV.length]
 	end
@@ -113,7 +121,7 @@ if __FILE__ == $0
 
 		for distn in distrolist do
 nchentry = <<-eos
-#{debpkg} (#{debver}~#{distn}1) #{distn}; urgency=low
+#{debpkg} (#{debver}~#{distn}#{vernum}) #{distn}; urgency=low
 
   * Upload to Launchpad
 
