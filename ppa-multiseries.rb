@@ -115,7 +115,7 @@ if __FILE__ == $0
 		debver = dchfl.split(")")[0].split("(").last
 		debpkg = dchfl.split(" ")[0]
 
-		debmail = ENV['DEBMAIL']
+		debmail = ENV['DEBEMAIL']
 		debname = ENV['DEBFULLNAME']
 		cdate = `date --rfc-2822`
 
