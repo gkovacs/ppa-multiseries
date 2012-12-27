@@ -101,7 +101,7 @@ if __FILE__ == $0
 	end
 
 	dscn = ARGV[0]
-	if dscn.include? "http://" or dscn.include? "ftp://"
+	if dscn.include? "http://" or dscn.include? "https://" or dscn.include? "ftp://"
 		sh "dget #{dscn}"
 		dscn = dscn[dscn.rindex("/")+1..dscn.length]
 	end
