@@ -57,18 +57,7 @@ def writef(fn, c)
 end
 
 def rmdir(dirn)
-	Dir.foreach(dirn) { |fn|
-		if fn == "." or fn == ".."
-			next
-		end
-		fn = File.expand_path(dirn+"/"+fn)
-		if File.directory?(fn)
-			rmdir(fn)
-		else
-			File.delete(fn)
-		end
-	}
-	Dir.delete(dirn)
+	FileUtils.rm_rf(dirn)
 end
 
 if __FILE__ == $0
